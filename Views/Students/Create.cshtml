@@ -1,0 +1,12 @@
+@model Student
+@{ ViewData["Title"] = "Create Student"; }
+<h1>Create student</h1>
+<form asp-action="Create" method="post">
+<div asp-validation-summary="ModelOnly" class="validation"></div>
+<input type="hidden" asp-for="ID" />
+<div class="field"><label asp-for="Name"></label><input asp-for="Name" /><span asp-validation-for="Name"></span></div>
+<div class="field"><label asp-for="Address"></label><input asp-for="Address" /><span asp-validation-for="Address"></span></div>
+<div class="field"><label asp-for="CampusID"></label><select asp-for="CampusID" asp-items="ViewBag.CampusOptions"><option value="">Select a campus</option></select><span asp-validation-for="CampusID"></span></div>
+
+<button type="submit">Save</button><a class="back" asp-action="Index">Back to list</a>
+</form>

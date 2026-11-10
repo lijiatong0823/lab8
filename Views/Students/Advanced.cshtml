@@ -1,0 +1,12 @@
+@model Lab8.ViewModels.StudentIndexViewModel
+@{ ViewData["Title"] = "Advanced student search"; }
+<h1>Advanced student search</h1>
+<form asp-action="Advanced" method="get" class="advanced-form">
+    <div><label asp-for="Search">Search students</label><input asp-for="Search" placeholder="Name, address or campus" /></div>
+    <div><label asp-for="Address">Address contains</label><input asp-for="Address" /></div>
+    <div><label asp-for="CampusID">Campus</label><select asp-for="CampusID" asp-items="Model.CampusFilterItems"><option value="">All campuses</option></select></div>
+    <div class="form-actions"><button type="submit">Apply filters</button><a asp-action="Advanced">Reset</a></div>
+</form>
+<p class="filter-help">Campus counts show matches for the search and address fields before the campus filter is applied.</p>
+<p class="result-count">@Model.Students.Count student(s) found.</p>
+<partial name="_StudentTable" model="Model.Students" />

@@ -1,0 +1,15 @@
+@model IReadOnlyList<Student>
+@{ ViewData["Title"] = "Students"; }
+<div class="page-heading"><h1>Students</h1><a class="button" asp-action="Create">Create new</a></div>
+<form asp-action="Index" method="get" class="search-form">
+    <label for="search">Search students</label>
+    <div class="search-row"><input id="search" name="search" value="@ViewBag.Search" placeholder="Name, address or campus" /><button type="submit">Search</button></div>
+</form>
+<form asp-action="Index" method="get" class="filter-row">
+    <input type="hidden" name="search" value="@ViewBag.Search" />
+    <label for="campusID">Campus</label>
+    <select id="campusID" name="campusID" asp-items="ViewBag.Campuses"><option value="">All campuses</option></select>
+    <button type="submit">Filter</button><a asp-action="Index">Reset</a>
+</form>
+<p class="result-count">@Model.Count student(s) found.</p>
+<partial name="_StudentTable" model="Model" />

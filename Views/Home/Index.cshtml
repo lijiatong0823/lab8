@@ -1,0 +1,8 @@
+@{ ViewData["Title"] = "Campus directory"; }
+<h1>Campus directory</h1>
+<p>Find students and view their campus details.</p>
+<p><a class="button" asp-controller="Students" asp-action="Index">Find students</a><a class="back" asp-controller="Students" asp-action="Advanced">Advanced search</a><a class="back" asp-action="About" asp-route-id="5">About</a></p>
+<div class="media-grid">
+<section><h2>Image</h2><img class="project-image" src="~/images/project-image.jpg" alt="A person wearing a headset at a gaming event" /><button type="button" onclick="msg()">Show message</button></section>
+<section><h2>Video</h2><video controls preload="metadata" aria-label="Project video"><source src="~/video/project-video.mp4" type="video/mp4" />Your browser does not support the video tag.</video></section>
+</div>

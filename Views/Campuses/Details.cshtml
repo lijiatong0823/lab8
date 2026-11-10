@@ -1,0 +1,13 @@
+@model UniversityCampus
+@{ ViewData["Title"] = "UniversityCampus details"; }
+<h1>Campus details</h1>
+<dl><dt>ID</dt><dd>@Model.ID</dd><dt>Name</dt><dd>@Model.Name</dd><dt>Students</dt><dd>@Model.Students.Count</dd></dl>
+
+<h2>Students</h2>
+<table><thead><tr><th>ID</th><th>Name</th><th>Address</th></tr></thead><tbody>
+@foreach (var child in Model.Students.OrderBy(child => child.Name))
+{
+<tr><td>@child.ID</td><td><a asp-controller="Students" asp-action="Details" asp-route-id="@child.ID">@child.Name</a></td><td>@child.Address</td></tr>
+}
+</tbody></table>
+<p><a asp-action="Edit" asp-route-id="@Model.ID">Edit</a><a class="back" asp-action="Index">Back to list</a></p>

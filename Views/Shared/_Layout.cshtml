@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>@ViewData["Title"] - Lab 8</title><link rel="stylesheet" href="~/css/site.css" /></head>
+<body>
+<header><nav><strong><a asp-controller="Home" asp-action="Index">Lab 8 MVC</a></strong><a asp-controller="Students" asp-action="Index">Students</a><a asp-controller="Students" asp-action="Advanced">Advanced search</a><a asp-controller="Campuses" asp-action="Index">Campuses</a><a asp-controller="Products" asp-action="Index">Products</a><a asp-controller="Categories" asp-action="Index">Categories</a><form asp-controller="Students" asp-action="Index" method="get" class="nav-search"><input name="search" aria-label="Quick student search" placeholder="Search students" /><button type="submit">Go</button></form></nav></header>
+<main>@RenderBody()</main>
+<footer><a href="mailto:webmaster@massey.ac.nz">Course contact</a><span>Massey University · New Zealand</span></footer>
+<script src="~/js/site.js"></script>
+</body></html>

@@ -1,0 +1,9 @@
+@model IEnumerable<UniversityCampus>
+@{ ViewData["Title"] = "Campuses"; }
+<div class="page-heading"><h1>Campuses</h1><a class="button" asp-action="Create">Create new</a></div>
+<table><thead><tr><th>ID</th><th>Name</th><th>Students</th><th>Actions</th></tr></thead><tbody>
+@foreach (var item in Model)
+{
+<tr><td>@item.ID</td><td><a asp-controller="Students" asp-action="Index" asp-route-CampusID="@item.ID">@item.Name</a></td><td>@item.Students.Count</td><td class="actions"><a asp-action="Details" asp-route-id="@item.ID">Details</a><a asp-action="Edit" asp-route-id="@item.ID">Edit</a><a asp-action="Delete" asp-route-id="@item.ID">Delete</a></td></tr>
+}
+</tbody></table>

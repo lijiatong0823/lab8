@@ -1,0 +1,6 @@
+@model UniversityCampus
+@{ ViewData["Title"] = "Delete UniversityCampus"; }
+<h1>Delete universitycampus</h1>
+<p>Delete @Model.Name?</p>
+<div asp-validation-summary="ModelOnly" class="validation"></div>
+<form asp-action="Delete" method="post"><input type="hidden" asp-for="ID" /><button type="submit">Delete</button><a class="back" asp-action="Index">Back to list</a></form>

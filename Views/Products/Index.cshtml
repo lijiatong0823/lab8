@@ -1,0 +1,16 @@
+@model Lab8.ViewModels.ProductIndexViewModel
+@{ ViewData["Title"] = "Products"; }
+<div class="page-heading"><h1>Products</h1><a class="button" asp-action="Create">Create new</a></div>
+<form asp-action="Index" method="get" class="advanced-form">
+<div><label asp-for="Search">Search products</label><input asp-for="Search" /></div>
+<div><label asp-for="CategoryID">Category</label><select asp-for="CategoryID" asp-items="Model.CategoryFilterItems"><option value="">All categories</option></select></div>
+<div class="form-actions"><button type="submit">Apply filters</button><a asp-action="Index">Reset</a></div>
+</form>
+<p>@Model.Products.Count product(s) found.</p>
+<table><thead><tr><th>ID</th><th>Name</th><th>Price</th><th>Description</th><th>Category</th><th>Actions</th></tr></thead><tbody>
+@foreach (var item in Model.Products)
+{
+<tr><td>@item.ID</td><td>@item.Name</td><td>@item.Price.ToString("0.00")</td><td>@item.Description</td><td>@item.Category.Name</td><td class="actions"><a asp-action="Details" asp-route-id="@item.ID">Details</a><a asp-action="Edit" asp-route-id="@item.ID">Edit</a><a asp-action="Delete" asp-route-id="@item.ID">Delete</a></td></tr>
+}
+@if(Model.Products.Count == 0){<tr><td colspan="6">No products match these filters.</td></tr>}
+</tbody></table>
